@@ -1,0 +1,321 @@
+/* Variáveis de cor */
+:root {
+  --black: #121212;
+  --purple: #6a3093;
+  --pink: #c71585;
+  --white: #f8f8f8;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  font-size: larger;
+  font: optional;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(18, 18, 18, 0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid var(--purple);
+  z-index: 1000;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul.active {
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: var(--black);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--pink);
+  flex-direction: column;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--pink);
+}
+
+.btn-login {
+  background: var(--pink);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-cadastro {
+   background: var(--pink);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-login:hover {
+  background: var(--purple);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: var(--white);
+  text-shadow: 0 0 10px var(--pink);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: var(--white);
+  color: var(--purple);
+}
+
+.btn-primary:hover {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background: var(--white);
+  color: var(--purple);
+}
+
+/* Section */
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--pink);
+}
+
+/* Features Grid */
+.features-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+  padding-top: 5%;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  width: 280px;
+  box-shadow: 0 0 10px var(--purple);
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px var(--pink);
+}
+
+.feature-card .icon {
+  font-size: 3rem;
+  color: var(--pink);
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background: var(--black);
+  text-align: center;
+  padding: 2rem;
+  border-top: 2px solid var(--purple);
+  color: var(--white);
+  font-size: 0.9rem;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: var(--black);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 20px var(--pink);
+  position: relative;
+  border: 2px solid var(--pink);
+  color: var(--white);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--pink);
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: var(--purple);
+}
+
+.modal-content h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--pink);
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--pink);
+  background: transparent;
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.modal-content input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--pink);
+  border: none;
+  border-radius: 30px;
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-submit:hover {
+  background: var(--purple);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: var(--black);
+    position: absolute;
+    top: 60px;
+    right: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--pink);
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .features-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  };
+}

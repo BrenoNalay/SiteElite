@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EliteCorp - App EliteFit</title>
-  <link rel="stylesheet" href="stlyle.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
@@ -17,11 +17,10 @@
         <li><a href="recursos.html">Recursos</a></li>
         <li><a href="app.html">App</a></li>
         <li><a href="contato.html">Contato</a></li>
-        <li><button id="login-btn" class="btn-login">Login</button></li>
-        <li><button id="cadastro-btn" class="btn-cadastro">Cadastro</button></li> 
+        <li><a href="login.html" class="btn-login">Login</a></li>
+        <li><a href="cadastro.html" class="btn-cadastro">Cadastro</a></li> 
       </ul>
     </nav>
-    <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
   </header>
 
   <!-- Modal de Cadastro -->
@@ -56,12 +55,18 @@
 
   <!-- Conteúdo da página App -->
   <section id="app" class="section">
-    <h2>App EliteFit</h2>
-    <p>Em breve, mais informações sobre o nosso aplicativo EliteFit.</p>
+    <h1>App EliteFit</h1>
+    <h2>O Aplicativo EliteFit é o aplicativo que você precisa para evoluir ou começar o seu treinamento, 
+      com Video-Aulas, uma Cauculadora que caucula os macronutrientes que o seu corpo precisa, e uma interface facil e 
+      dinamica para o uso perfeito no dia a dia!
+    </h2>
   </section>
+  <img src="img/printlogin.png" alt="Print Do Login" id="Print1">
+  <img src="img/printcauculadora.png" alt="Print Da Cauculadora" id="Print2">
+  <img src="img/print-video.png" alt="Print Do Video" id="Print3">
+  <img src="img/printeditor-.png" alt="Print Editor" id="Print4">
 
   <!-- Scripts -->
-  <script src="main.js"></script>
   <script type="module" src="firebase.js"></script>
 </body>
 </html>

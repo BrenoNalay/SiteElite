@@ -1,54 +1,64 @@
-// -------- MENU MOBILE --------
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const nav = document.querySelector('nav ul');
+// Importações principais do Firebase
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "firebase/auth";
 
-mobileMenuBtn.addEventListener('click', () => {
-  nav.classList.toggle('active');
-  mobileMenuBtn.innerHTML = nav.classList.contains('active')
-    ? '<i class="fas fa-times"></i>'
-    : '<i class="fas fa-bars"></i>';
-});
+// Configuração do Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCrlGdGVsIMCjrzXL-h5_N5mVvcQNleaaU",
+  authDomain: "siteelitecorp.firebaseapp.com",
+  projectId: "siteelitecorp",
+  storageBucket: "siteelitecorp.firebasestorage.app",
+  messagingSenderId: "752645002095",
+  appId: "1:752645002095:web:62179dc184489ca5ae8e9a",
+  measurementId: "G-8DP6R168KV"
+};
 
-// -------- LOGIN --------
-const loginBtn = document.getElementById('login-btn');
-const loginModal = document.getElementById('login-modal');
-const closeLogin = document.getElementById('close-login');
+// Inicializa Firebase
+const app = initializeApp(firebaseConfig);
+getAnalytics(app);
 
-loginBtn.addEventListener('click', () => {
-  loginModal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-});
-
-closeLogin.addEventListener('click', () => {
-  loginModal.style.display = 'none';
-  document.body.style.overflow = 'auto';
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target === loginModal) {
-    loginModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }
-});
+// Inicializa autenticação
+const auth = getAuth(app);
 
 // -------- CADASTRO --------
-const cadastroBtn = document.getElementById('cadastro-btn');
-const cadastroModal = document.getElementById('cadastro-modal');
-const closeCadastro = document.getElementById('close-cadastro');
+const cadastroForm = document.getElementById("cadastro-form");
+if (cadastroForm) {
+  cadastroForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("cadastro-email").value;
+    const senha = document.getElementById("cadastro-password").value;
 
-cadastroBtn.addEventListener('click', () => {
-  cadastroModal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-});
+    try {
+      // Cria usuário no Firebase Auth
+      await createUserWithEmailAndPassword(auth, email, senha);
+      alert("✅ Usuário cadastrado com sucesso!");
+      window.location.href = "login.html";
+    } catch (error) {
+      alert("❌ Erro ao cadastrar: " + error.message);
+    }
+  });
+}
 
-closeCadastro.addEventListener('click', () => {
-  cadastroModal.style.display = 'none';
-  document.body.style.overflow = 'auto';
-});
+// -------- LOGIN --------
+const loginForm = document.getElementById("login-form");
+if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("login-email").value;
+    const senha = document.getElementById("login-password").value;
 
-window.addEventListener('click', (e) => {
-  if (e.target === cadastroModal) {
-    cadastroModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }
-});
+    try {
+      // Faz login no Firebase Auth
+      await signInWithEmailAndPassword(auth, email, senha);
+      alert("✅ Login realizado com sucesso!");
+      window.location.href = "index.html";
+    } catch (error) {
+      alert("❌ Erro ao logar: " + error.message);
+    }
+  });
+}
